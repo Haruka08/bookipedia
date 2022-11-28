@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useMutation } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
-import { createUser } from '../utils/API';
+// import { createUser } from '../utils/API';
 import Auth from '../utils/auth';
+import { ADD_USER } from '../utils/mutations';
 
 const SignupForm = () => {
   // set initial form state
@@ -12,6 +13,8 @@ const SignupForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
+  const [addUser] = useMutation(ADD_USER)
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
@@ -19,6 +22,17 @@ const SignupForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    const mutationResponse = await addUser({
+      variables: {
+        email: userFormData.email,
+        password: userFormData.password,
+        firstName: userFormData.firstName,
+        lastName: userFormData.lastName,
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
+
 
     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
