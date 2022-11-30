@@ -1,4 +1,5 @@
-import React, { useState, useMutation } from 'react';
+import React, { useState } from 'react';
+import {useMutation} from '@apollo/client'
 import { Form, Button, Alert } from 'react-bootstrap';
 
 // import { createUser } from '../utils/API';
@@ -26,8 +27,7 @@ const SignupForm = () => {
       variables: {
         email: userFormData.email,
         password: userFormData.password,
-        firstName: userFormData.firstName,
-        lastName: userFormData.lastName,
+        username: userFormData.username,
       },
     });
     const token = mutationResponse.data.addUser.token;
