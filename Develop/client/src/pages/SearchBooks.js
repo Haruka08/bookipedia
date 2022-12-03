@@ -10,7 +10,6 @@ import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 import { SAVE_BOOK } from '../utils/mutations'
 
 const SearchBooks = () => {
-  console.log('got to Searchbooks')
   // create state for holding returned google api data
   const [searchedBooks, setSearchedBooks] = useState([]);
   // create state for holding our search field data
@@ -58,7 +57,7 @@ const SearchBooks = () => {
       console.error(err);
     }
   };
-  console.log('got here')
+
   // create function to handle saving a book to our database
   const handleSaveBook = async (bookId) => {
 
