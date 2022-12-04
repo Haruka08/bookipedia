@@ -3,7 +3,7 @@ A website where a user can search for books and to save favourite books
 
 ## Links to the webpage and repository
 
-To access the website use [Bookipedia](https://grim-corpse-63523.herokuapp.com/)
+To access the website use [Bookipedia](https://fathomless-plateau-76545.herokuapp.com/)
 
 To access the GitHub repository use [GitHub Repository bookipedia](https://github.com/Haruka08/bookipedia)
 
