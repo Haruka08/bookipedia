@@ -19,5 +19,9 @@
     "@apollo/client": "^3.7.1",
     "graphql": "^16.6.0",
     "heroku": "^7.67.1"
+  },
+  "engines": {
+    "node": "16.17.0",
+    "npm": "8.15.0"
   }
 }
